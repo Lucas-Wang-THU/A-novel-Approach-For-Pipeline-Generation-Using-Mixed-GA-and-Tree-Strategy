@@ -1,0 +1,1169 @@
+{
+  "Uuid": "151d984a-6a0e-427b-8bb8-e155d0244efc",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "visualisation",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "HintPath": "G:\\竞赛学术\\双智竞赛\\智慧城市竞赛\\路径\\Routen3.xlsx",
+      "InputValue": "路径\\Routen3.xlsx",
+      "NodeType": "ExtensionNode",
+      "Id": "3931e45009aa4fec9c1aa30be5e07415",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8e873000c87f4434ae1c5d0815bbadce",
+          "Name": "",
+          "Description": "Filename",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "允许您选择系统上的文件以获得其文件名"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.FileObject, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "a282f171e85d4ad68c23b2a25d8d0a53",
+      "Inputs": [
+        {
+          "Id": "699c777639654e27a529e4551214724a",
+          "Name": "path",
+          "Description": "文件路径。",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4682808d175b4b9cb32ec384279a4c1c",
+          "Name": "file",
+          "Description": "文件对象",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "从路径创建文件对象。"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Sheet1",
+      "Id": "5a17c9df79174763810d672de756294a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8f541382c3aa4c6f937016a52e23203b",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "创建字符串。"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.DropItems@var[]..[],int",
+      "Id": "6476722993474197b78fc0ab577fe925",
+      "Inputs": [
+        {
+          "Id": "6b495528eb024e29b1c272d91bb9350a",
+          "Name": "list",
+          "Description": "要删除项的列表。\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1fb4de618e6a4389acbb237a4bc6205b",
+          "Name": "amount",
+          "Description": "要删除的项数。如果为负值，则从列表结尾开始删除项。\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ff414ab727aa4f72a50ffc66d5fb4aa3",
+          "Name": "list",
+          "Description": "剩余项的列表。",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "从列表开始删除一些项目。数量为负值时， 从列表末尾删除项目。\n\nList.DropItems (list: var[]..[], amount: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleInput, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "InputValue": 1.0,
+      "Id": "659ad466b1864b91ac4da433eafd697e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9ac480b95efb4056990db7d099d015ee",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "创建数字。"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSOffice.Data.ImportExcel@var,string,bool,bool",
+      "Id": "85c5a0186eda41ac996db994e2c3026e",
+      "Inputs": [
+        {
+          "Id": "fbf5a2b5f65245759918d31ca051fc9b",
+          "Name": "file",
+          "Description": "表示 Microsoft Excel 电子表格的文件。\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ee21f8e384b34addbee93d518d69b15d",
+          "Name": "sheetName",
+          "Description": "包含此数据的工作表的名称。\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "38afdffe563f45d4a94214ca50fc47f9",
+          "Name": "readAsStrings",
+          "Description": "单击以切换是否将 Excel 文件读取为字符串。\n\nbool\n默认值 : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "67018d24c07f4c09915ca21df060d43c",
+          "Name": "showExcel",
+          "Description": "单击以在显示和隐藏主 Excel 窗口之间切换。\n\nbool\n默认值 : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fcbbe86e22ee4fe0967b8af08b70e62d",
+          "Name": "data",
+          "Description": "Excel 工作表的数据行。",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "从 Microsoft Excel 电子表格读取数据。按行读取数据并 按行返回到一系列列表中。行和列是零索引； 例如，A1 单元中的值将出现在 [0,0] 处数据列表中。 该节点需要安装 Microsoft Excel。\n\nData.ImportExcel (file: var, sheetName: string, readAsStrings: bool = false, showExcel: bool = true): var[][]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Transpose@var[]..[]",
+      "Id": "710ad6d2f1ae4555afce4d46236400e2",
+      "Inputs": [
+        {
+          "Id": "bc52cf9f36d1453499bccd4bce99ae1b",
+          "Name": "lists",
+          "Description": "要转置的列表的列表。\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "92f02de673e04c06880eb7002236cbc5",
+          "Name": "lists",
+          "Description": "已转置的列表的列表。",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "在列表的列表中互换行和列。 如果一些行长短不一， 则空值将作为占位符插入结果 数组中，使其始终为矩形。\n\nList.Transpose (lists: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "a[0];\na[1];\na[2];\na[3];\na[4];\na[5];",
+      "Id": "c915f717ca6144dfbdfa551bc896533f",
+      "Inputs": [
+        {
+          "Id": "94c4038014f440fa88c0a381dd407c01",
+          "Name": "a",
+          "Description": "a",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "deabea71dc7942cd9e7a899090cf5026",
+          "Name": "",
+          "Description": "行 1 中的表达式值",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "70a5701f398d426c9bf00058ce70595b",
+          "Name": "",
+          "Description": "行 2 中的表达式值",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c0c7f155da8944f9bcf447dd3c35649b",
+          "Name": "",
+          "Description": "行 3 中的表达式值",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e36e14f3183e4bcbb9b0440ade1649dc",
+          "Name": "",
+          "Description": "行 4 中的表达式值",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cc73fd0b3510431f941666ea2e064008",
+          "Name": "",
+          "Description": "行 5 中的表达式值",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5397e76b9d864945a49158b0db1927d2",
+          "Name": "",
+          "Description": "行 6 中的表达式值",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "允许直接编写 DesignScript 代码"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "x1;",
+      "Id": "4145a5f86a9d4cf899735e7a2ecb27c1",
+      "Inputs": [
+        {
+          "Id": "8b27095ff18c48768b147223279b40af",
+          "Name": "x1",
+          "Description": "x1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a74d36b3c7d04b43b8ebf8e625e80355",
+          "Name": "",
+          "Description": "行 1 中的表达式值",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "允许直接编写 DesignScript 代码"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "y1;",
+      "Id": "5231fd14ccc44e319c3cacd49c41bc19",
+      "Inputs": [
+        {
+          "Id": "efba2aacd7cd4150b1dbdac2331ddd45",
+          "Name": "y1",
+          "Description": "y1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "236e611207fd4ab78c39bffb694e64ec",
+          "Name": "",
+          "Description": "行 1 中的表达式值",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "允许直接编写 DesignScript 代码"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "x2;",
+      "Id": "006b38d68ee048c087589126321bc2c0",
+      "Inputs": [
+        {
+          "Id": "8277e31d1be142f096160a8215784cdd",
+          "Name": "x2",
+          "Description": "x2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a7e8205df8454edbaa522d5746e57898",
+          "Name": "",
+          "Description": "行 1 中的表达式值",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "允许直接编写 DesignScript 代码"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "y2;",
+      "Id": "54e9bcfdf26d4fbe9905a2ef706e68fa",
+      "Inputs": [
+        {
+          "Id": "270d3c886ef04a16bb67707d6323c3e5",
+          "Name": "y2",
+          "Description": "y2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "63e65712c804470fa3e464d077932953",
+          "Name": "",
+          "Description": "行 1 中的表达式值",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "允许直接编写 DesignScript 代码"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "z1;",
+      "Id": "5c1ec4ed1c3a43b688b67382df3d1e3c",
+      "Inputs": [
+        {
+          "Id": "fdb692cf658847ea8eee8467f76ae989",
+          "Name": "z1",
+          "Description": "z1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "64a18287e46e4552902aba0d097f39b8",
+          "Name": "",
+          "Description": "行 1 中的表达式值",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "允许直接编写 DesignScript 代码"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "z2;",
+      "Id": "081e8bb0ce3f4845a1a6508cab99ba05",
+      "Inputs": [
+        {
+          "Id": "bb3da6ecb80f4d868018334293f99cd9",
+          "Name": "z2",
+          "Description": "z2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "dc5dd690889e43a28c85b248a294dafc",
+          "Name": "",
+          "Description": "行 1 中的表达式值",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "允许直接编写 DesignScript 代码"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "0a74db8e90bf47f1a662266f43d030f3",
+      "Inputs": [
+        {
+          "Id": "846987b322f64fd6b5ea0faf4f7ae28c",
+          "Name": "x",
+          "Description": "double\n默认值 : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3e76f0b344444a4b8d1180cb8778794f",
+          "Name": "y",
+          "Description": "double\n默认值 : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d8914d10b56d452889aeca7f6f522805",
+          "Name": "z",
+          "Description": "double\n默认值 : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "853d43d6ee014ee586b35bf459bc3aec",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "通过给定的 3 个笛卡尔坐标形成一个点\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "f27e6038196e44ff989ccfb1bc5d3fcd",
+      "Inputs": [
+        {
+          "Id": "e1aca21f83554a1597b91b99ad8162d0",
+          "Name": "x",
+          "Description": "double\n默认值 : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "63987ef45a4d435f8b3c97cc069b6beb",
+          "Name": "y",
+          "Description": "double\n默认值 : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d86490cee3ca4d5cb6290c2955e347a0",
+          "Name": "z",
+          "Description": "double\n默认值 : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2d10d9a25cd2494aad1aff825cc72e94",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "通过给定的 3 个笛卡尔坐标形成一个点\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Id": "2af6401ddff24b66b3487b2acdab6ed2",
+      "Inputs": [
+        {
+          "Id": "dabae21481024762accbbe5d4805d53f",
+          "Name": "startPoint",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dffe9621ae0f4c4c80352391bca57279",
+          "Name": "endPoint",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "658c7299387e4a31ba0ece61a6f5def2",
+          "Name": "Line",
+          "Description": "Line",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "在两个输入点之间创建一条直线。\n\nLine.ByStartPointEndPoint (startPoint: Point, endPoint: Point): Line"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.CreateList, CoreNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "fd2fde0bf343438f8a19f01926e64786",
+      "Inputs": [
+        {
+          "Id": "6199be8c30a94428b8a94d2bacd57056",
+          "Name": "item0",
+          "Description": "项索引 #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d79f0d5695d2421ba7e1979f5855fd2b",
+          "Name": "item1",
+          "Description": "项目索引编号1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "551430163d50444bac47a760379bb8a9",
+          "Name": "list",
+          "Description": "列表",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "使新列表超出给定输入内容"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Transpose@var[]..[]",
+      "Id": "4fca38e3a61e472ba9598ddecba801ac",
+      "Inputs": [
+        {
+          "Id": "f3a60493adab4cea86686fc84942dded",
+          "Name": "lists",
+          "Description": "要转置的列表的列表。\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3977dfc2365b4974b5341426d1eb2bfe",
+          "Name": "lists",
+          "Description": "已转置的列表的列表。",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "在列表的列表中互换行和列。 如果一些行长短不一， 则空值将作为占位符插入结果 数组中，使其始终为矩形。\n\nList.Transpose (lists: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.AdaptiveComponent.ByPoints@Autodesk.DesignScript.Geometry.Point[][],Revit.Elements.FamilyType",
+      "Id": "a7ed7a118e354929a389353bf4b16248",
+      "Inputs": [
+        {
+          "Id": "4b1036c448b0414c90ad79e57e1051a1",
+          "Name": "points",
+          "Description": "点的二维数组\n\nPoint[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "13f9b1dd107943169392b0fe6adf704f",
+          "Name": "familyType",
+          "Description": "用于创建自适应构件的族类型\n\nFamilyType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "266bc00ffd9a40dca6994f42ddda9693",
+          "Name": "AdaptiveComponent[]..[]",
+          "Description": "AdaptiveComponent[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "通过点的二维数组创建自适应构件列表\n\nAdaptiveComponent.ByPoints (points: Point[][], familyType: FamilyType): AdaptiveComponent[]..[]"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.FamilyTypes, DSRevitNodesUI",
+      "SelectedIndex": 96,
+      "SelectedString": "管道:管道",
+      "NodeType": "ExtensionNode",
+      "Id": "66316f7ab5b8413c86b33bdd0425cafa",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "045885fa77374945bd413a239d40dc12",
+          "Name": "Family Type",
+          "Description": "选定的 Family Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "文档中所有可用族类型。"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.SetParameterByName@string,var",
+      "Id": "d5e49902aa90474b9bfc9e05dbe203b5",
+      "Inputs": [
+        {
+          "Id": "b665ff26567a40a68a86404ce46957ca",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f49cc6f270814364a2654ebb44e847df",
+          "Name": "parameterName",
+          "Description": "要设置的参数的名称。\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6b14c0c283c24ad5a4c234188a44d236",
+          "Name": "value",
+          "Description": "数值。\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3a28f9d213ec4e88918ed56f521ffa10",
+          "Name": "Element",
+          "Description": "Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "设置一个图元参数。\n\nElement.SetParameterByName (parameterName: string, value: var): Element"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "8e873000c87f4434ae1c5d0815bbadce",
+      "End": "699c777639654e27a529e4551214724a",
+      "Id": "db0b07e2aa1f4e3698f03ac8134da31b"
+    },
+    {
+      "Start": "4682808d175b4b9cb32ec384279a4c1c",
+      "End": "fbf5a2b5f65245759918d31ca051fc9b",
+      "Id": "febe048d8449428c9a218c7e6bc26e34"
+    },
+    {
+      "Start": "8f541382c3aa4c6f937016a52e23203b",
+      "End": "ee21f8e384b34addbee93d518d69b15d",
+      "Id": "7589fa832f5e442eafd0b17c7137a0e8"
+    },
+    {
+      "Start": "ff414ab727aa4f72a50ffc66d5fb4aa3",
+      "End": "bc52cf9f36d1453499bccd4bce99ae1b",
+      "Id": "64d3373d931f4957a0b6dae3dbf5cf0e"
+    },
+    {
+      "Start": "9ac480b95efb4056990db7d099d015ee",
+      "End": "1fb4de618e6a4389acbb237a4bc6205b",
+      "Id": "e6230d6cff77487597322ff065f82bc0"
+    },
+    {
+      "Start": "fcbbe86e22ee4fe0967b8af08b70e62d",
+      "End": "6b495528eb024e29b1c272d91bb9350a",
+      "Id": "b527d1649b374b71ac8dec24e175a543"
+    },
+    {
+      "Start": "92f02de673e04c06880eb7002236cbc5",
+      "End": "94c4038014f440fa88c0a381dd407c01",
+      "Id": "6784281a22b14f63b03d44bd92af3076"
+    },
+    {
+      "Start": "deabea71dc7942cd9e7a899090cf5026",
+      "End": "8b27095ff18c48768b147223279b40af",
+      "Id": "b96dfb7010be46239e70d85d1d5e8d57"
+    },
+    {
+      "Start": "70a5701f398d426c9bf00058ce70595b",
+      "End": "efba2aacd7cd4150b1dbdac2331ddd45",
+      "Id": "27c098e34fd847d2967ee56a0db440b7"
+    },
+    {
+      "Start": "c0c7f155da8944f9bcf447dd3c35649b",
+      "End": "8277e31d1be142f096160a8215784cdd",
+      "Id": "95cc084063bc42b3bf2f48a04c7eaeef"
+    },
+    {
+      "Start": "e36e14f3183e4bcbb9b0440ade1649dc",
+      "End": "270d3c886ef04a16bb67707d6323c3e5",
+      "Id": "2312e1395f96420fac470a553d38c15f"
+    },
+    {
+      "Start": "cc73fd0b3510431f941666ea2e064008",
+      "End": "fdb692cf658847ea8eee8467f76ae989",
+      "Id": "b2a7b38da7e2486a80ea60a452e3bc4e"
+    },
+    {
+      "Start": "5397e76b9d864945a49158b0db1927d2",
+      "End": "bb3da6ecb80f4d868018334293f99cd9",
+      "Id": "276932e62bb14c31a19fc14cdddfc012"
+    },
+    {
+      "Start": "a74d36b3c7d04b43b8ebf8e625e80355",
+      "End": "846987b322f64fd6b5ea0faf4f7ae28c",
+      "Id": "3080e2f6ae09409da1fc618356108424"
+    },
+    {
+      "Start": "236e611207fd4ab78c39bffb694e64ec",
+      "End": "3e76f0b344444a4b8d1180cb8778794f",
+      "Id": "64555bbe72574ec1ad18cdb7b4c93c54"
+    },
+    {
+      "Start": "a7e8205df8454edbaa522d5746e57898",
+      "End": "e1aca21f83554a1597b91b99ad8162d0",
+      "Id": "34f8be3767e24143a569a17f4859d1b4"
+    },
+    {
+      "Start": "63e65712c804470fa3e464d077932953",
+      "End": "63987ef45a4d435f8b3c97cc069b6beb",
+      "Id": "ee9d05c11cf444e4a3a03d16f63d17a4"
+    },
+    {
+      "Start": "64a18287e46e4552902aba0d097f39b8",
+      "End": "d8914d10b56d452889aeca7f6f522805",
+      "Id": "00dd727ca2f24863a85d1a0264c89c1e"
+    },
+    {
+      "Start": "dc5dd690889e43a28c85b248a294dafc",
+      "End": "d86490cee3ca4d5cb6290c2955e347a0",
+      "Id": "9832a475ce22454a9a394a69d2d28be0"
+    },
+    {
+      "Start": "853d43d6ee014ee586b35bf459bc3aec",
+      "End": "6199be8c30a94428b8a94d2bacd57056",
+      "Id": "f009b93e23624cc885a7e13073d5c4be"
+    },
+    {
+      "Start": "2d10d9a25cd2494aad1aff825cc72e94",
+      "End": "d79f0d5695d2421ba7e1979f5855fd2b",
+      "Id": "cf0dce6aacc74637aff9869a9095c8b4"
+    },
+    {
+      "Start": "551430163d50444bac47a760379bb8a9",
+      "End": "f3a60493adab4cea86686fc84942dded",
+      "Id": "7b21a065a5494223be1513cd7cb3ff49"
+    },
+    {
+      "Start": "3977dfc2365b4974b5341426d1eb2bfe",
+      "End": "4b1036c448b0414c90ad79e57e1051a1",
+      "Id": "e5b6a71c1620401bbdcc083a8101dbec"
+    },
+    {
+      "Start": "045885fa77374945bd413a239d40dc12",
+      "End": "13f9b1dd107943169392b0fe6adf704f",
+      "Id": "259278df8941417ca489730e36a8b36e"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 10000.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.1.0.7500",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "背景预览",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "File Path",
+        "Id": "3931e45009aa4fec9c1aa30be5e07415",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 211.09215899560991,
+        "Y": 291.19835470837762
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "File From Path",
+        "Id": "a282f171e85d4ad68c23b2a25d8d0a53",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 510.21590401266963,
+        "Y": 314.89789924164893
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "5a17c9df79174763810d672de756294a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 734.99561717076165,
+        "Y": 368.72471613907277
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.DropItems",
+        "Id": "6476722993474197b78fc0ab577fe925",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1244.3198366757197,
+        "Y": 105.58013820391758
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Number",
+        "Id": "659ad466b1864b91ac4da433eafd697e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1086.0150433372003,
+        "Y": 317.02611658540337
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Data.ImportExcel",
+        "Id": "85c5a0186eda41ac996db994e2c3026e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 890.23173002100953,
+        "Y": 99.986329252026337
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Transpose",
+        "Id": "710ad6d2f1ae4555afce4d46236400e2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1459.9798853986115,
+        "Y": 108.63801949997057
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "c915f717ca6144dfbdfa551bc896533f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1773.09089954517,
+        "Y": 107.985953870209
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "4145a5f86a9d4cf899735e7a2ecb27c1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1989.2764267844996,
+        "Y": 16.733342569031549
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "5231fd14ccc44e319c3cacd49c41bc19",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1985.9656670397962,
+        "Y": 118.71339058837532
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "006b38d68ee048c087589126321bc2c0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1986.5872933028086,
+        "Y": 220.79520121181417
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "54e9bcfdf26d4fbe9905a2ef706e68fa",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1986.33455288738,
+        "Y": 320.63552304625375
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "5c1ec4ed1c3a43b688b67382df3d1e3c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1990.4613948776853,
+        "Y": 438.84098522202629
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "081e8bb0ce3f4845a1a6508cab99ba05",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1989.3315925735717,
+        "Y": 571.3267906801259
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Point.ByCoordinates",
+        "Id": "0a74db8e90bf47f1a662266f43d030f3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2328.2229988783738,
+        "Y": 40.5923302950182
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Point.ByCoordinates",
+        "Id": "f27e6038196e44ff989ccfb1bc5d3fcd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2333.1165155007366,
+        "Y": 241.93451490213982
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Line.ByStartPointEndPoint",
+        "Id": "2af6401ddff24b66b3487b2acdab6ed2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2621.461790948727,
+        "Y": 83.678156624540748
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List Create",
+        "Id": "fd2fde0bf343438f8a19f01926e64786",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2730.1957470251759,
+        "Y": 246.20680675986398
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Transpose",
+        "Id": "4fca38e3a61e472ba9598ddecba801ac",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2908.1760646029411,
+        "Y": 247.9236586979132
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "AdaptiveComponent.ByPoints",
+        "Id": "a7ed7a118e354929a389353bf4b16248",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3249.0460224988069,
+        "Y": 238.55582123174403
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Family Types",
+        "Id": "66316f7ab5b8413c86b33bdd0425cafa",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2915.0434723551375,
+        "Y": 379.317712463032
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.SetParameterByName",
+        "Id": "d5e49902aa90474b9bfc9e05dbe203b5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2873.4751285103107,
+        "Y": 493.40956023304705
+      }
+    ],
+    "Annotations": [],
+    "X": 191.84655644677741,
+    "Y": 349.8304772229007,
+    "Zoom": 0.30853451019043165
+  }
+}
